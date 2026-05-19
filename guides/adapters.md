@@ -32,8 +32,8 @@ Object Storage, Minio, and B2.
 | `bucket`            | yes      | Bucket name. One store = one bucket.                        |
 | `region`            | yes      | Required for SigV4 even on non-AWS endpoints.               |
 | `endpoint`          | no       | Defaults to `https://s3.<region>.amazonaws.com`.            |
-| `access_key`        | yes      | Binary or `{env, "VAR_NAME"}`.                              |
-| `secret_key`        | yes      | Binary or `{env, "VAR_NAME"}`.                              |
+| `access_key`        | yes      | Name of the env var holding the access key (string).        |
+| `secret_key`        | yes      | Name of the env var holding the secret key (string).        |
 | `addressing_style`  | no       | `virtual` (default) or `path`. Minio needs `path`.          |
 | `session_token`     | no       | For temporary credentials.                                  |
 | `max_size`          | no       | Per-put byte ceiling. Default `infinity`.                   |
