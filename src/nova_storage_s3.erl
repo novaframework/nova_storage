@@ -14,8 +14,8 @@ B2 (S3-compatible endpoint).
     bucket => <<"my-bucket">>,
     region => <<"eu-west-1">>,
     endpoint => <<"https://s3.eu-west-1.amazonaws.com">>,  %% optional, derived for AWS
-    access_key => {env, "S3_ACCESS_KEY"},
-    secret_key => {env, "S3_SECRET_KEY"},
+    access_key => "S3_ACCESS_KEY",
+    secret_key => "S3_SECRET_KEY",
     addressing_style => virtual,  %% or path
     session_token => undefined,
     max_size => infinity
@@ -221,13 +221,13 @@ endpoint_from(Opts, Region) ->
         E when is_binary(E) -> E
     end.
 
-resolve_secret({env, VarName}) ->
+resolve_secret(VarName) when is_list(VarName) ->
     case os:getenv(VarName) of
         false -> error({env_var_not_set, VarName});
         V -> list_to_binary(V)
     end;
-resolve_secret(V) when is_binary(V) ->
-    V.
+resolve_secret(VarName) when is_binary(VarName) ->
+    resolve_secret(binary_to_list(VarName)).
 
 key_url(#handle{endpoint = Endpoint, bucket = Bucket, addressing = virtual}, Key, Query) ->
     add_query(<<(insert_subdomain(Endpoint, Bucket))/binary, "/", Key/binary>>, Query);

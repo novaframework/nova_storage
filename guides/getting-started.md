@@ -22,8 +22,8 @@
         bucket => <<"my-uploads">>,
         region => <<"eu-west-1">>,
         endpoint => <<"https://s3.eu-west-1.amazonaws.com">>,
-        access_key => {env, "S3_ACCESS_KEY"},
-        secret_key => {env, "S3_SECRET_KEY"},
+        access_key => "S3_ACCESS_KEY",
+        secret_key => "S3_SECRET_KEY",
         addressing_style => virtual
     }
 }}]}.
