@@ -1,0 +1,11 @@
+{application, nova_storage, [
+    {description, "Object/file storage abstraction for the Nova ecosystem"},
+    {vsn, "git"},
+    {registered, [nova_storage_sup, nova_storage_registry]},
+    {applications, [kernel, stdlib, inets, ssl, crypto, public_key, xmerl]},
+    {mod, {nova_storage_app, []}},
+    {env, [{stores, #{}}]},
+    {modules, []},
+    {licenses, ["Apache-2.0"]},
+    {links, [{"GitHub", "https://github.com/novaframework/nova_storage"}]}
+]}.
