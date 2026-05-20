@@ -43,6 +43,5 @@ telemetry:attach_many(
 
 ## OpenTelemetry
 
-A sibling library `opentelemetry_nova_storage` will install the trace + metric
-pipeline. Until then, configure your own OTel pipeline to subscribe to
-these `[nova_storage, ...]` events.
+Configure your own OTel pipeline to subscribe to these
+`[nova_storage, ...]` events.
