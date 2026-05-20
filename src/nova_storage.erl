@@ -2,8 +2,7 @@
 -moduledoc """
 Public API for the nova_storage library.
 
-Object/file storage abstraction with pluggable adapters. Bytes-in / bytes-out;
-encryption-at-rest is `nova_vault`'s job, audit is `nova_audit`'s.
+Object/file storage abstraction with pluggable adapters. Bytes-in / bytes-out.
 
 ## Quick start
 
@@ -35,8 +34,8 @@ encryption-at-rest is `nova_vault`'s job, audit is `nova_audit`'s.
 ## Stability
 
 `nova_storage` is NOT a dependency of nova core and must never become one.
-Audit logging belongs in `nova_audit`. Encryption-at-rest belongs in
-`nova_vault`. Image transforms belong in a separate library.
+Audit logging, encryption-at-rest, and image transforms are deliberately
+out of scope.
 """.
 
 -export([
