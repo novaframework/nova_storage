@@ -45,8 +45,8 @@ The S3 adapter works against AWS, Cloudflare R2, Scaleway Object, Minio, B2.
 ## Scope
 
 `nova_storage` is intentionally narrow: bytes in, bytes out, signed URLs,
-listing. Audit logs belong in `nova_audit`. Encryption-at-rest belongs in
-`nova_vault`. Image transforms belong in a separate library.
+listing. Audit logging, encryption-at-rest, and image transforms are
+deliberately out of scope.
 
 ## Build
 
